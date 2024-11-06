@@ -35,5 +35,8 @@ Create an empty repository in GitHub and push the local code to the repository.
 
 ```sh
 git remote add origin https://github.com/greg98721/Picton.git
+git branch -M main
 git push -u origin main
 ```
+
+## pnpm
