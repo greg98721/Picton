@@ -12,6 +12,9 @@ catalogs:
     '@types/node':
       specifier: ^20.3.1
       version: 20.17.6
+    prettier:
+      specifier: ^3.0.0
+      version: 3.3.3
     rxjs:
       specifier: ^7.8.1
       version: 7.8.1
@@ -104,6 +107,9 @@ importers:
       karma-jasmine-html-reporter:
         specifier: ~2.1.0
         version: 2.1.0(jasmine-core@5.2.0)(karma-jasmine@5.1.0(karma@6.4.4))(karma@6.4.4)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.3.3
       typescript:
         specifier: 'catalog:'
         version: 5.5.4
@@ -166,7 +172,7 @@ importers:
         specifier: ^29.5.0
         version: 29.7.0(@types/node@20.17.6)(ts-node@10.9.2(@types/node@20.17.6)(typescript@5.5.4))
       prettier:
-        specifier: ^3.0.0
+        specifier: 'catalog:'
         version: 3.3.3
       source-map-support:
         specifier: ^0.5.21
