@@ -1,9 +1,0 @@
-packages:
-  # all packages in direct subdirs of packages/
-  - 'packages/*'
-
-catalog:
-  typescript: ~5.5.2
-  @types/node: ^20.3.1
-  @types/express: ^5.0.0
-  rxjs: ^7.8.1
