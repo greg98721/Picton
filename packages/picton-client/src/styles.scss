@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+// Add sans-serif in case it speeds up loading of the first page
+$mat-typography: mat.define-typography-config(
+  $font-family: 'Roboto',
+  sans-serif,
+  $brand-family: 'Roboto',
+  sans-serif,
+  $plain-family: 'Roboto',
+  sans-serif,
+  $bold-weight: 500,
+  $medium-weight: 400,
+  $regular-weight: 200,
+);
+
+$mat-density: 0;
+
+
+html {
+  // Apply the light (core) theme by default
+  @include mat.core-theme($light-theme);
+  @include mat.core-typography($mat-typography);
+  @include mat.core-density($mat-density);
+  @include mat.button-theme($mat-core-theme);
+
+  // Apply the dark theme only when the user prefers dark themes.
+  @media (prefers-color-scheme: dark) {
+    // Use the `-color` mixins to only apply color styles without reapplying the same
+    // typography and density styles.
+    @include mat.core-color($dark-theme);
+    @include mat.button-color($dark-theme);
+  }
+}

@@ -1,0 +1,10 @@
+@use "../styles.scss" as *;
+@use "@angular/material" as mat;
+
+:host {
+  height: 100%;
+}
+
+.router-outlet {
+  overflow-y: auto;
+}
