@@ -135,12 +135,27 @@ $_rest: (
 $_primary: map.merge(map.get($_palettes, primary), $_rest);
 $_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
 
+$base-font-family: 'Roboto', sans-serif;
+$theme-typography:  (
+  plain-family: $base-font-family,
+  brand-family: $base-font-family,
+  bold-weight: 500,
+  medium-weight: 400,
+  regular-weight: 200,
+);
+
+$mat-density: (
+  scale: 0
+);
+
 $light-theme: mat.define-theme((
   color: (
     theme-type: light,
     primary: $_primary,
     tertiary: $_tertiary,
   ),
+  typography: $theme-typography,
+  density: $mat-density,
 ));
 $dark-theme: mat.define-theme((
   color: (
@@ -148,4 +163,6 @@ $dark-theme: mat.define-theme((
     primary: $_primary,
     tertiary: $_tertiary,
   ),
+  typography: $theme-typography,
+  density: $mat-density,
 ));
