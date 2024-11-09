@@ -2,7 +2,11 @@
 @use "@angular/material" as mat;
 
 :host {
+  display: grid;
   height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: stretch;
 }
 
 .router-outlet {

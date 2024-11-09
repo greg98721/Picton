@@ -1,0 +1,69 @@
+@use "../../../../styles.scss" as *;
+@use "../../../../theme.scss" as *;
+@use "@angular/material" as mat;
+
+.layout {
+  display: grid;
+  height: 100%;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr max-content 1fr max-content 0.5fr;
+  grid-template-areas:
+    ". ."
+    "main-area main-area"
+    ". ."
+    "action_1-area action_2-area"
+    ". .";
+
+  @media (max-width: $narrow-breakpoint) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr max-content 0.25fr max-content 0.25fr max-content 1fr;
+    grid-template-areas:
+      "."
+      "main-area"
+      "."
+      "action_1-area"
+      "."
+      "action_2-area"
+      ".";
+  }
+}
+
+.headline {
+  grid-area: main-area;
+  text-align: center;
+  font: mat.get-theme-typography($light-theme, display-large, font);
+  @media (max-width: $narrow-breakpoint) {
+    font: mat.get-theme-typography($light-theme, display-small, font);
+  }
+
+  color: mat.get-theme-color($light-theme, primary);
+  @media (prefers-color-scheme: dark) {
+    color: mat.get-theme-color($dark-theme, primary);
+  }
+}
+
+.air-title {
+  font-weight: 400;
+}
+
+.timetable-link,
+.booking-link {
+  text-align: center;
+  font: mat.get-theme-typography($light-theme, display-medium, font);
+
+  color: mat.get-theme-color($light-theme, secondary);
+  background-color: rgba(mat.get-theme-color($light-theme, secondary-container), 0.35);
+  @media (prefers-color-scheme: dark) {
+    color: mat.get-theme-color($dark-theme, secondary);
+    background-color: rgba(mat.get-theme-color($dark-theme, secondary-container), 0.35);
+  }
+}
+
+.timetable-link {
+  grid-area: action_1-area;
+}
+
+.booking-link {
+  grid-area: action_2-area;
+}

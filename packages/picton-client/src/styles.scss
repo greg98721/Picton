@@ -3,6 +3,10 @@
 
 @include mat.core();
 
+$narrow-breakpoint: 50rem;
+$wide-breakpoint: 100rem;
+$middle-breakpoint: 75rem;
+
 html {
   // Apply the light (core) theme by default
   @include mat.core-theme($light-theme);
@@ -14,5 +18,40 @@ html {
     // typography and density styles.
     @include mat.core-color($dark-theme);
     @include mat.button-color($dark-theme);
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  background-color: mat.get-theme-color($light-theme, surface);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: mat.get-theme-color($dark-theme, surface);
+  }
+}
+
+
+a,
+a:visited {
+  text-decoration: none;
+
+  color: mat.get-theme-color($light-theme, secondary);
+  @media (prefers-color-scheme: dark) {
+    color: mat.get-theme-color($dark-theme, secondary);
+  }
+}
+
+a:hover {
+  text-decoration: underline;
+
+  color: mat.get-theme-color($light-theme, tertiary);
+  @media (prefers-color-scheme: dark) {
+    color: mat.get-theme-color($dark-theme, tertiary);
   }
 }
