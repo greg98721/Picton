@@ -1,0 +1,23 @@
+{
+  "name": "picton-model",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "date-fns": "catalog:",
+    "@date-fns/tz":"catalog:",
+    "seedrandom": "^3.0.5",
+    "@types/seedrandom": "^3.0.8"
+  },
+  "devDependencies": {
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  }
+}

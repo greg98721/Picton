@@ -1,18 +1,20 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Airport }  from 'picton-model'
+import { CityNamePipe } from '../../../shared/pipes/city-name.pipe';
 
 @Component({
   selector: 'app-destinations-page',
   standalone: true,
-  imports: [ RouterModule, NgOptimizedImage],
+  imports: [ RouterModule, NgOptimizedImage, CityNamePipe],
   templateUrl: './destinations-page.component.html',
   styleUrl: './destinations-page.component.scss'
 })
 export class DestinationsPageComponent {
 
   // We could go the server to get the list of destinations dynamically - but if we hardcode them we can pre-compile the page and have it load quickly. Also destinations are reasonably static
-  destinations: { code: string; fluff: string }[] = [
+  destinations: { code: Airport; fluff: string }[] = [
     { code: 'NZAA', fluff: DUMMY_TEXT[0] },
     { code: 'NZWB', fluff: DUMMY_TEXT[1] },
     { code: 'NZCI', fluff: DUMMY_TEXT[2] },

@@ -11,6 +11,10 @@
     {
       "name": "PICTON SERVER",
       "path": "packages/picton-server"
+    },
+    {
+      "name": "PICTON MODEL",
+      "path": "packages/picton-model"
     }
   ],
   "settings": {
