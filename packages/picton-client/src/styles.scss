@@ -7,6 +7,11 @@ $narrow-breakpoint: 50rem;
 $wide-breakpoint: 100rem;
 $middle-breakpoint: 75rem;
 
+
+$half-wide: calc($wide-breakpoint / 2);
+$third-wide: calc($wide-breakpoint / 3);
+$quarter-wide: calc($wide-breakpoint / 4);
+
 html {
   // Apply the light (core) theme by default
   @include mat.core-theme($light-theme);

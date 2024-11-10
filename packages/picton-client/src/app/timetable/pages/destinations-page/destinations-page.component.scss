@@ -1,0 +1,88 @@
+@use '../../../../styles.scss' as *;
+@use "../../../../theme.scss" as *;
+@use '@angular/material' as mat;
+
+.layout {
+  display: grid;
+  grid-template-columns: 0.25fr 0.25fr 0.5fr;
+  grid-template-rows: 1.2vw max-content 0.5rem max-content 1rem max-content max-content;
+  grid-template-areas:
+    '. . .'
+    'picture picture picture'
+    '. . .'
+    'cityname-area cityname-area fluff-area'
+    '. . fluff-area'
+    'timetable-area booking-area fluff-area'
+    '. . fluff-area';
+
+  @media (max-width: $narrow-breakpoint) {
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-rows: 0.5rem max-content 0.25rem max-content 0.5rem max-content;
+    grid-template-areas:
+      '. .'
+      'picture picture'
+      '. .'
+      'cityname-area cityname-area'
+      '. .'
+      'timetable-area booking-area';
+  }
+
+  @media (min-width: $wide-breakpoint) {
+    grid-template-columns: 0.5fr $quarter-wide $quarter-wide $half-wide 0.5fr;
+    grid-template-rows: 1.2rem max-content 0.25rem max-content 0.5rem max-content 0.5rem;
+    grid-template-areas:
+      '. . . . .'
+      '. picture picture picture .'
+      '. . . . .'
+      '. cityname-area cityname-area fluff-area .'
+      '. . . fluff-area .'
+      '. timetable-area booking-area fluff-area .'
+      '. . . fluff-area .';
+  }
+}
+
+.pretty-picture {
+  grid-area: picture;
+  position: relative !important;
+  object-fit: 'cover';
+  width: 100%;
+  background-color: pink;
+  @media (min-width: $wide-breakpoint) {
+    width: $wide-breakpoint;
+  }
+}
+
+.city-name {
+  grid-area: cityname-area;
+  font: mat.get-theme-typography($light-theme, headline-large, font);
+  color: mat.get-theme-color($light-theme, primary);
+  @media (prefers-color-scheme: dark) {
+    color: mat.get-theme-color($dark-theme, primary);
+  }
+}
+
+.fluff {
+  grid-area: fluff-area;
+  font: mat.get-theme-typography($light-theme, title-medium, font);
+  color: mat.get-theme-color($light-theme, on-surface);
+  @media (prefers-color-scheme: dark) {
+    color: mat.get-theme-color($dark-theme, on-surface);
+  }
+
+  @media (max-width: $narrow-breakpoint) {
+    display: none;
+  }
+}
+
+.goto-timetable,
+.book-now {
+  font: mat.get-theme-typography($light-theme, title-large, font);
+}
+
+.goto-timetable {
+  grid-area: timetable-area;
+}
+
+.book-now {
+  grid-area: booking-area;
+}
