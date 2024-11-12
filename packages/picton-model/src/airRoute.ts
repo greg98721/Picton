@@ -23,13 +23,6 @@ export function cityName(a: Airport): string {
   }
 }
 
-export function timezone(airport: Airport): string {
-  if (airport === 'NZCI') {
-    return 'Pacific/Chatham';
-  } else {
-    return 'Pacific/Auckland';
-  }
-}
 
 /** should be route but want to avoid any mix up with angular routing */
 export interface AirRoute {

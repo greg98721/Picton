@@ -12,8 +12,8 @@ export interface TimetableFlight {
   flightNumber: string;
   /** offset in minutes from the start of the day in the origin timezone */
   departs: number;
-  /** offset in minutes from the start of the timetable day in the destination timezone - could be negative for some flights */
-  arrives: number;
+  /** time of flight in minutes */
+  flightDuration: number;
   /** a 7 bit array - see days below */
   days: number;
 }

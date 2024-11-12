@@ -4,7 +4,6 @@ import {
   eachDayOfInterval,
   differenceInCalendarDays,
 } from 'date-fns';
-import { getTimezoneOffset } from 'date-fns-tz';
 import {
   Aircraft,
   Airport,
@@ -502,11 +501,6 @@ function createTimetableFlights(
     aircraft = 'A220-300';
   }
 
-  // This is a fudge as the timezones change with the date because of daylight saving - this is enough for a demo
-  const originTzOffset = getTimezoneOffset(timezone(route.origin));
-  const destinationTzOffset = getTimezoneOffset(timezone(route.destination));
-  const timezoneDelta = (destinationTzOffset - originTzOffset) / 1000;
-
   const speed = aircraft === 'ATR42' ? 500 : 800;
   const flightTime = (route.distance / speed) * 60.0 + 25; // the 25 min is landing taxying etc.
   const basePrice = aircraft === 'ATR42' ? flightTime * 2 : flightTime * 1.2; // jet is cheaper than turboprop
@@ -564,7 +558,6 @@ function createTimetableFlights(
   }
 
   return depatureTimes.map((t) => {
-    const arrives = t.departure + flightDuration - timezoneDelta;
     const flightNumber = `MA${currentFlightNumber.toString().padStart(3, '0')}`;
     currentFlightNumber++;
 
@@ -573,7 +566,7 @@ function createTimetableFlights(
       aircraft: aircraft,
       flightNumber: flightNumber,
       departs: t.departure,
-      arrives: arrives,
+      flightDuration,
       days: t.days,
       flights: undefined,
       basePrice: basePrice,
