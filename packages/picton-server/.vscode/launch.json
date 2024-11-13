@@ -15,11 +15,8 @@
       "name": "nest test",
       "type": "node",
       "request": "launch",
-      "runtimeArgs": [
-        "--inspect-brk",
-        "${workspaceFolder}/packages/picton-server/node_modules/.bin/jest",
-        "--runInBand"
-      ],
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run", "test"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     }

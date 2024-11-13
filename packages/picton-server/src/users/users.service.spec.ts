@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { expect } from '@jest/globals';
 import { UsersService } from './users.service';
+import { formatISO } from 'date-fns';
 
 describe('UsersService', () => {
   let service: UsersService;
@@ -27,9 +27,10 @@ describe('UsersService', () => {
       passwordHash: bob?.passwordHash, // because the hash is not repeatable
       firstName: 'Bob',
       lastName: 'Smith',
-      birthDate: new Date(1973, 6, 21),
+      birthDate: formatISO(new Date(1973, 6, 21), { representation: 'date' }),
       address: '16 Julian Street\nRedwoodtown\nBlenheim 7201',
-      customerCode: 'ABC001',
+      email: 'bob@here.com',
+      phoneNumber: '03 578 1234',
     });
   });
 
