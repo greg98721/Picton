@@ -135,7 +135,7 @@ $_rest: (
 $_primary: map.merge(map.get($_palettes, primary), $_rest);
 $_tertiary: map.merge(map.get($_palettes, tertiary), $_rest);
 
-$base-font-family: 'Roboto', sans-serif;
+$base-font-family: 'Roboto Flex', sans-serif;
 $theme-typography:  (
   plain-family: $base-font-family,
   brand-family: $base-font-family,

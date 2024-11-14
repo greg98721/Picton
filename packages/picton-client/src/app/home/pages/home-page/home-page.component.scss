@@ -5,6 +5,16 @@
 .layout {
   display: grid;
   height: 100%;
+  @media (min-width: $narrow-breakpoint) {
+    background-image: url("../../../../assets/home-page-wide.jpg");
+  }
+  @media (max-width: $narrow-breakpoint) {
+      background-image: url("../../../../assets/home-page-narrow.jpg");
+  }
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:top center;
 
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr max-content 1fr max-content 0.5fr;
@@ -33,30 +43,41 @@
   grid-area: main-area;
   text-align: center;
   font: mat.get-theme-typography($light-theme, display-large, font);
-  @media (max-width: $narrow-breakpoint) {
-    font: mat.get-theme-typography($light-theme, display-small, font);
-  }
+  font-size: 10vw;
+  line-height: 12vw;
+  font-stretch:extra-expanded;
 
   color: mat.get-theme-color($light-theme, primary);
+  background-color: rgba(mat.get-theme-color($light-theme, primary-container), 0.60);
   @media (prefers-color-scheme: dark) {
     color: mat.get-theme-color($dark-theme, primary);
+    background-color: rgba(mat.get-theme-color($dark-theme, primary-container), 0.50);
   }
 }
 
 .air-title {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .timetable-link,
 .booking-link {
   text-align: center;
   font: mat.get-theme-typography($light-theme, display-medium, font);
-
+  font-weight: 400;
+  font-stretch:expanded;
+  @media (min-width: $narrow-breakpoint) {
+    font-size: 5vw;
+    line-height: 6vw;
+  }
+  @media (max-width: $narrow-breakpoint) {
+    font-size: 10vw;
+    line-height: 12vw;
+  }
   color: mat.get-theme-color($light-theme, secondary);
-  background-color: rgba(mat.get-theme-color($light-theme, secondary-container), 0.35);
+  background-color: rgba(mat.get-theme-color($light-theme, secondary-container), 0.65);
   @media (prefers-color-scheme: dark) {
     color: mat.get-theme-color($dark-theme, secondary);
-    background-color: rgba(mat.get-theme-color($dark-theme, secondary-container), 0.35);
+    background-color: rgba(mat.get-theme-color($dark-theme, secondary-container), 0.50);
   }
 }
 

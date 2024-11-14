@@ -29,6 +29,7 @@ html {
 html,
 body {
   height: 100%;
+  font-variation-settings: "wght" var(--text-axis), "wdth" var(--text-axis);
 }
 
 body {
